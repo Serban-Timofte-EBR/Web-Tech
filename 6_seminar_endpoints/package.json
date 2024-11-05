@@ -1,0 +1,28 @@
+{
+  "name": "intro_to_node_express_endpoints",
+  "version": "1.0.0",
+  "description": "How to create a Node.js with Express Endpoint - Web Tech",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Serban-Timofte-EBR/Web-Tech.git"
+  },
+  "author": "Serban Timofte",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Serban-Timofte-EBR/Web-Tech/issues"
+  },
+  "homepage": "https://github.com/Serban-Timofte-EBR/Web-Tech#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
