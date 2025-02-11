@@ -20,6 +20,20 @@
 
 - Cand stergem un task, trebuie sa stergem si din tabela permissions unde am forResource id-ul taskului si la type am task
 
-# Permisiuni pe tasl
+# Permisiuni pe task
 
 - Nu inteleg despre ce este vorba
+
+# Creare task
+
+- Cand creez cel de al doilea task intr-un proiect cu acelasi user am eroare forbidden si dupa se creeaz un task aiurea
+
+- Trebuie si al doilea create intr-un proiect de un user sa se faca iarasi insertul
+
+# Taskurile unui proiect
+
+- Cand facem un proiect nou nu se selecteaza corect taskurile
+
+- Vad toate taskurile in toate proiectele. Nu se face fetchul corect
+
+- getAllTasksForProject contine problema

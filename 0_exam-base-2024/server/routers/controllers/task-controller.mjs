@@ -9,7 +9,7 @@ const getAllTasksForProject = async (req, res, next) => {
       projectId: req.params.pid,
     };
     const count = await models.Task.count({
-      ...filterQuery,
+      where: filterQuery,
       include: {
         model: models.Permission,
         where: {
@@ -20,7 +20,7 @@ const getAllTasksForProject = async (req, res, next) => {
       },
     });
     const data = await models.Task.findAll({
-      ...query,
+      where: query,
       include: [
         {
           model: models.Permission,

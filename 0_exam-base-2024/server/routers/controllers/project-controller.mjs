@@ -103,17 +103,29 @@ const deleteOwnedProject = async (req, res, next) => {
   try {
     const project = await models.Project.findByPk(req.params.pid);
     if (project) {
+      const tasks = await models.Task.findAll({
+        where: {
+          projectId: project.id,
+        },
+      });
+
+      for (const task of tasks) {
+        await models.Permission.destroy({
+          where: {
+            forResource: task.id,
+            type: "task",
+          },
+        });
+        await task.destroy();
+      }
+
       await models.Permission.destroy({
         where: {
           forResource: project.id,
           type: "project",
         },
       });
-      await models.Task.destroy({
-        where: {
-          projectId: project.id,
-        },
-      });
+
       await project.destroy();
       res.status(204).end();
     } else {
