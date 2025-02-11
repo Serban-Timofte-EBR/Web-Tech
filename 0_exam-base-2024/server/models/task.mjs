@@ -10,19 +10,40 @@
  * @property {string} status - The current status of the task. Defaults to 'open'.
  */
 export default (sequelize, DataTypes) => {
-  return sequelize.define('task', {
-    title: { type: 
-      DataTypes.STRING, 
-      allowNull: false 
-    },
-    description: { 
-      type: DataTypes.TEXT ,
-      allowNull: false
-    },
-    status: { 
-      type: DataTypes.STRING, 
+  const Task = sequelize.define("task", {
+    title: {
+      type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: 'open' 
-    }
-  })
-}
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    status: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "open",
+    },
+    projectId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    assignedToId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+  });
+
+  Task.associate = (models) => {
+    Task.hasMany(models.Permission, {
+      foreignKey: "forResource",
+      as: "permission",
+    });
+  };
+
+  return Task;
+};

@@ -23,6 +23,7 @@ class UserStore {
         throw response;
       }
       this.data = await response.json();
+      localStorage.setItem("token", this.data.token);
       this.emitter.emit("LOGIN_SUCCESS");
     } catch (err) {
       console.warn(err);
@@ -46,6 +47,7 @@ class UserStore {
         throw response;
       }
       this.data = {};
+      localStorage.removeItem("token");
       this.emitter.emit("LOGOUT_SUCCESS");
     } catch (err) {
       console.warn(err);
