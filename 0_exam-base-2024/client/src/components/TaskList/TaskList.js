@@ -34,8 +34,7 @@ const TaskList = () => {
           ))}
         </tbody>
       </table>
-      // Aici facem sa dispara butonul de Create Task daca nu esti owner de
-      proiect
+      {/* Aici facem sa dispara butonul de Create Task daca nu esti owner de proiect */}
       {globalState.project.data.userId === globalState.user.data.id && (
         <div className="footer">
           <button onClick={() => navigate(`/projects/${params.pid}/tasks/new`)}>
