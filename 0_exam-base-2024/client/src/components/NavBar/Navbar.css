@@ -1,0 +1,25 @@
+.navbar {
+  background-color: #333;
+  padding: 10px 20px;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-list li {
+  display: inline;
+}
+
+.nav-list a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+.nav-list a:hover {
+  background-color: #555;
+}
