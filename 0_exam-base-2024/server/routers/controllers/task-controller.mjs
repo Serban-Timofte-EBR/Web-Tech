@@ -119,6 +119,7 @@ const updateOwnedTaskForProject = async (req, res, next) => {
   }
 };
 
+// Cand sterg un task sterg si din promisiuni tot unde am taskid si type task
 const deleteOwnedTaskForProject = async (req, res, next) => {
   try {
     const task = await models.Task.findOne({

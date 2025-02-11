@@ -99,6 +99,7 @@ const updateOwnedProject = async (req, res, next) => {
   }
 };
 
+// Cand sterg proiectul sterg toate taskurile si toate permisiunile si ale taskului si ale proiectului
 const deleteOwnedProject = async (req, res, next) => {
   try {
     const project = await models.Project.findByPk(req.params.pid);
