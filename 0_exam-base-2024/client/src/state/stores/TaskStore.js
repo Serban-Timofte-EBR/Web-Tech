@@ -64,7 +64,7 @@ class TaskStore {
             "Content-Type": "application/json",
             authorization: state.user.data.token,
           },
-          body: JSON.stringify(task),
+          body: JSON.stringify(task, state.user.data.id),
         }
       );
       if (!response.ok) {

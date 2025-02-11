@@ -84,12 +84,16 @@ const createOwnedTaskForProject = async (req, res, next) => {
       ...req.body,
       projectId: req.params.pid,
     });
+
+    await task.save();
+
     await models.Permission.create({
       forResource: task.id,
       forUser: req.params.uid,
       type: "task",
-      perms: ["read", "write"],
+      rights: ["read", "write"],
     });
+
     res.status(201).json(task);
   } catch (err) {
     next(err);
